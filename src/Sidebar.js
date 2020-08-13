@@ -14,14 +14,15 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import db from './firebase';
+import { useStateValue } from './StateProvider';
 
 function Sidebar() {
     const [channels, setChannels] = useState([]);
+    const [{ user }] = useStateValue();
 
     //channels will become an array of objects
     useEffect(() => {
         db.collection("rooms").onSnapshot(snapshot => {
-            console.log(snapshot.docs)
             setChannels(
                 snapshot.docs.map(doc => ({
                     id: doc.id,
@@ -38,7 +39,7 @@ function Sidebar() {
                     <h2>Me</h2>
                     <h3>
                         <FiberManualRecordIcon />
-                        Me
+                        {user?.displayName}
                     </h3>
                 </div>
                 <CreateIcon />
@@ -52,9 +53,9 @@ function Sidebar() {
             <SidebarOption Icon={FileCopyIcon} title="File browser" />
             <SidebarOption Icon={ExpandLessIcon} title="Show less" />
             <hr />
-            <SidebarOption Icon={ExpandMoreIcon} title="Show less" />
+            <SidebarOption Icon={ExpandMoreIcon} title="Show More" />
             <hr />
-            <SidebarOption Icon={AddIcon} title="Show less" />
+            <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
 
             {/* connect to db and list all the channels */}
             {/* multiple sidebarOptions */}
