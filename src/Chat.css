@@ -4,17 +4,20 @@
 
 .chat {
     flex-grow: 1;
-    flex: 0.7;
+    flex: 1;
     overflow: scroll;
     padding-bottom: 150px;
+    background-color: var(--slack-color);
 }
 
 .chat__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid lightgray;
+    padding: 23.5px;
+    border-top: 1px solid #000;
+    /* border-bottom: 1px solid #000; */
+    color: gold;
 }
 
 .chat__channelName {

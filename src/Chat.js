@@ -24,7 +24,7 @@ function Chat() {
 
             db.collection('rooms').doc(roomId)
             .collection('messages')
-            .orderBy('timestamp', 'desc')
+            .orderBy('timestamp', 'asc')
             .onSnapshot(
                 snapshot => setRoomMessages(snapshot.docs.map(doc => doc.data()))
             )
@@ -57,7 +57,9 @@ function Chat() {
                 ))}
             </div>
             
-            <ChatInput channelName={roomDetails?.name} channelId={roomId}/>
+            {roomDetails?.name !== undefined &&
+                <ChatInput channelName={roomDetails?.name} channelId={roomId}/>
+            }
         </div>
     )
 }

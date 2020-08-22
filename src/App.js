@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Chat from './Chat';
 import Login from './Login';
 import { useStateValue } from './StateProvider';
+import Typed from 'react-typed';
 
 function App() {
 	const [{ user }] = useStateValue()
@@ -30,7 +31,22 @@ function App() {
 									<Chat />
 								</Route>
 								<Route exact path="/">
-									<h1>Welcome</h1>
+									<div className="welcome">
+										<Typed strings={['Welcome To', 'Hit Me Up!']} typeSpeed={70} />
+										<br/>
+									</div>
+								</Route>
+								<Route exact path="/room">
+									<div className="welcome">
+										<Typed strings={['Welcome To', 'Hit Me Up!']} typeSpeed={70} />
+										<br/>
+									</div>									
+								</Route>
+								<Route exact path="/room/">
+									<div className="welcome">
+										<Typed strings={['Welcome To', 'Hit Me Up!']} typeSpeed={70} />
+										<br/>
+									</div>
 								</Route>
 							</Switch>
 						</div>

@@ -4,6 +4,8 @@ import { Button } from '@material-ui/core'
 import { auth, provider } from './firebase'
 import { useStateValue } from './StateProvider'
 import { actionTypes } from './reducer';
+import logo1 from './logo1.jpg'
+import google from './google.png'
 
 function Login() {
     const [state, dispatch] = useStateValue();
@@ -23,9 +25,13 @@ function Login() {
     return (
         <div className="login">
             <div className="login__container"> 
-                <img src="" alt="" />
-                <h1>Sign In</h1>
-                <Button onClick={signIn}>SIGN IN WITH GOOGLE</Button>
+                <h1>LOGIN</h1>
+                <img src={logo1} alt="" />
+                <p></p>
+                <Button onClick={signIn}>
+                    <img className="loginButton__logo" src={google} alt="" />
+                    Continue with Google
+                </Button>
             </div>
         </div>
     )

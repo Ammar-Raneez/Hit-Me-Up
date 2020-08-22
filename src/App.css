@@ -1,8 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300&display=swap');
+
 body {
-    --slack-color: #3f0f40;
+    --slack-color: #181818;
+    overflow: hidden;
 }
 
 .app__body {
     display: flex;
     height: 100vh;
+}
+
+.welcome {
+    background-color: var(--slack-color);
+    color: white;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome {
+    font-size: 200px;
+    color: goldenrod;
+    font-family: 'Oxanium';
+    font-weight: bolder;
+    font-style: italic;
+    text-align: center;
 }
